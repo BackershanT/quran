@@ -1,0 +1,14 @@
+flutter_native_splash:
+  android: true
+  ios: true
+  web: false
+
+
+  background_image: "assets/logo/looogo.png"
+
+
+  android_12:
+#    image: "assets/logo/loogo.png"
+    color: "#d4e4ed"
+
+
