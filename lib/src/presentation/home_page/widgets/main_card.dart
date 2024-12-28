@@ -14,12 +14,14 @@ class MainCard extends StatelessWidget {
             width: double.infinity,
             height: 200,
             decoration: BoxDecoration(
-              image: DecorationImage(image: AssetImage(mainCardImage),fit: BoxFit.fitWidth,alignment: Alignment.center),
+              image: DecorationImage(
+                  image: AssetImage(mainCardImage),
+                  fit: BoxFit.fitWidth,
+                  alignment: Alignment.center),
               color: CustomColor.bgColor,
               boxShadow: [
                 BoxShadow(
-                  color: Colors.black
-                      .withOpacity(0.25),
+                  color: Colors.black.withOpacity(0.25),
                   offset: Offset(4, 4),
                   blurRadius: 10,
                   spreadRadius: 2,

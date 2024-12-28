@@ -2,13 +2,12 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'chapters_list.g.dart';
 
-
 @JsonSerializable()
 class ChapterListResp {
-  @JsonKey(name: 'results')
-  List<Chapter> results;
+  @JsonKey(name: 'chapters')
+  List<Chapter> chapters;
 
-  ChapterListResp({this.results= const []});
+  ChapterListResp({this.chapters = const []});
 
   factory ChapterListResp.fromJson(Map<String, dynamic> json) {
     return _$ChapterListRespFromJson(json);
@@ -21,10 +20,6 @@ class ChapterListResp {
 class Chapter {
   @JsonKey(name: 'id')
   int? id;
-  @JsonKey(name: 'revelation_place')
-  String? revelationPlace;
-  @JsonKey(name: 'revelation_order')
-  int? revelationOrder;
   @JsonKey(name: 'bismillah_pre')
   bool? bismillahPre;
   @JsonKey(name: 'name_simple')
@@ -33,19 +28,15 @@ class Chapter {
   String? nameComplex;
   @JsonKey(name: 'name_arabic')
   String? nameArabic;
-  @JsonKey(name: 'verses_count')
-  int? versesCount;
+
   List<int>? pages;
 
   Chapter({
     this.id,
-    this.revelationPlace,
-    this.revelationOrder,
     this.bismillahPre,
     this.nameSimple,
     this.nameComplex,
     this.nameArabic,
-    this.versesCount,
     this.pages,
   });
 

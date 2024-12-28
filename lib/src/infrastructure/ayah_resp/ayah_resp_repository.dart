@@ -3,20 +3,20 @@ import 'dart:developer';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
+import 'package:quran/src/domain/ayah_script/model/ayah_resp/ayah_resp.dart';
 import 'package:quran/src/domain/core/api_endpoints.dart';
 import 'package:quran/src/domain/core/failure/main_failure.dart';
 
-import '../../domain/chapter_list/i_chapters_list_repo.dart';
-import '../../domain/chapter_list/model/chapters_list.dart';
+import '../../domain/ayah_script/i_ayah_resp.dart';
 
-@LazySingleton(as: IChaptersListRepo)
-class ChapterListRepository implements IChaptersListRepo {
+@LazySingleton(as: IAyahRespRepo)
+class AyahRespRepository implements IAyahRespRepo {
   @override
-  Future<Either<MainFailure, ChapterListResp>> getChaptersListData() async {
+  Future<Either<MainFailure, AyahResp>> getAyahRespData() async {
     try {
-      final response = await Dio(BaseOptions()).get(ApiEndpoints.chaptersList);
+      final response = await Dio(BaseOptions()).get(ApiEndpoints.ayahResp);
       if (response.statusCode == 200 || response.statusCode == 201) {
-        final result = ChapterListResp.fromJson(response.data);
+        final result = AyahResp.fromJson(response.data);
         log(result.toString());
         return Right(result);
       } else {

@@ -18,7 +18,7 @@ class MainGridViewHome extends StatelessWidget {
     return Padding(
         padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
         child: GestureDetector(
-            onTap:  onTap,
+            onTap: onTap,
             child: Container(
                 height: 200,
                 width: 155,

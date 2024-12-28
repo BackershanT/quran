@@ -15,7 +15,6 @@ class QuranListPage extends StatelessWidget {
     });
     return BlocBuilder<ChaptersListBloc, ChaptersListState>(
       builder: (context, state) {
-
         if (state.isLoading) {
           return Center(
             child: CircularProgressIndicator(
@@ -28,27 +27,29 @@ class QuranListPage extends StatelessWidget {
           );
         } else {
           return ListView.builder(
-                itemCount: state.chaptersList.length,
-                itemBuilder: (BuildContext context, index) {
-                  final chapterList = state.chaptersList[index];
-log(chapterList.toString());
-                  return QuranListTile(
-                    title: chapterList.nameArabic ?? 'NO name', onTap:(){
-                  Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => QuranDetailedPage()),
-                  );
-                  print(chapterList.nameArabic);
+              itemCount: state.chaptersList.length,
+              itemBuilder: (BuildContext context, index) {
+                final chapterList = state.chaptersList[index];
+                log(chapterList.toString());
+                return QuranListTile(
+                  title: chapterList.nameArabic ?? 'NO name',
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => QuranDetailedPage(
+
+                              )),
+                    );
                   },
-                  );
-                });
+                );
+              });
           // );
         }
       },
     );
     // );
     //
-
   }
 }
 
@@ -60,15 +61,16 @@ class QuranChapterList extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           leading: IconButton(
-            icon: Icon(Icons.arrow_back_ios_new), onPressed: () {
-            Navigator.pop(context);
-          },),
-          title: Text('data'),
+            icon: Icon(Icons.arrow_back_ios_new),
+            onPressed: () {
+              Navigator.pop(context);
+            },
+          ),
+          title: Text('Chapters'),
           centerTitle: true,
         ),
-        body:
-            QuranListPage(key: Key('quranListPage'),)
-
-        );
+        body: QuranListPage(
+          key: Key('quranListPage'),
+        ));
   }
 }

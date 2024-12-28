@@ -5,13 +5,12 @@ class ChaptersListState with _$ChaptersListState {
   const factory ChaptersListState({
     required bool isLoading,
     required bool hasError,
-    required List<Chapter>chaptersList,
+    required List<Chapter> chaptersList,
+  }) = _Initial;
 
-}) = _Initial;
-
-  factory ChaptersListState.initial()=> ChaptersListState(
-    hasError: false,
-    chaptersList: [],
-    isLoading: false,
-  );
+  factory ChaptersListState.initial() => ChaptersListState(
+        hasError: false,
+        chaptersList: [],
+        isLoading: false,
+      );
 }
